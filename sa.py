@@ -94,26 +94,16 @@ with open('classes', 'w', encoding='utf-8') as classes:
    json.dump(cl, classes, ensure_ascii=False, indent=4)
 
 
-#sa.create_project( project_name = proj_name, project_description = 'Decribed', project_type = 'Vector')
-#sa.create_annotation_class( project = proj_name, name = 'Class_via_SDK', color = "#15ff00")
-#sa.upload_image_to_project(project = proj_name,  img = filepath, image_name="eifel", annotation_status='NotStarted')
-#sa.create_annotation_classes_from_classes_json(project = proj_name, classes_json = "./classes.json")
-
-#sa.validate_annotations(project_type = "Vector", annotations_json ="./eifel___objects.json" )
-#sa.upload_annotations_from_folder_to_project(project = proj_name, folder_path = "./")
-
-
-#sa.download_image_annotations(
-#    project = proj_name,
-#    image_name = "eifel",
- #   local_dir_path = "./finish")
+sa.create_project( project_name = proj_name, project_description = 'Decribed', project_type = 'Vector')
+sa.create_annotation_class( project = proj_name, name = 'Class_via_SDK', color = "#15ff00")
+sa.upload_image_to_project(project = proj_name,  img = filepath, image_name="eifel", annotation_status='NotStarted')
+sa.create_annotation_classes_from_classes_json(project = proj_name, classes_json = "./classes.json")
+sa.validate_annotations(project_type = "Vector", annotations_json ="./eifel___objects.json" )
+sa.upload_annotations_from_folder_to_project(project = proj_name, folder_path = "./")
 annotations = sa.get_image_annotations(
     project = proj_name,
     image_name = "eifel")
 with open('finish', 'w', encoding='utf-8') as fin:
    json.dump(annotations["annotation_json"], fin, ensure_ascii=False, indent=4)
-#print(json.dumps(annotations["annotation_json"], indent = 4, sort_keys = True))
 
-#sa.prepare_export(project = proj_name, annotation_statuses = ["Completed"])
-#sa.download_export(project ='Project', export = 'Project Jan 16 2022 09:44 BAGRAT.zip ', folder_path = './')
 
